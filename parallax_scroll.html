@@ -1,0 +1,53 @@
+# HTML 코드 생성: 3개의 이미지를 좌우로 자연스럽게 스크롤하는 구성
+html_code = """
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Seamless Scrolling Western Background</title>
+  <style>
+    html, body {
+      margin: 0;
+      padding: 0;
+      overflow: hidden;
+      width: 100vw;
+      height: 100vh;
+      background-color: black;
+    }
+
+    .parallax-wrapper {
+      position: relative;
+      width: 300vw; /* 3개의 16:9 이미지를 가로로 이어붙임 */
+      height: 100vh;
+      display: flex;
+      animation: scroll 10s linear infinite;
+    }
+
+    .parallax-wrapper img {
+      height: 100vh;
+      width: auto;
+      flex-shrink: 0;
+    }
+
+    @keyframes scroll {
+      0% { transform: translateX(0); }
+      100% { transform: translateX(-100vw); }
+    }
+  </style>
+</head>
+<body>
+  <div class="parallax-wrapper">
+    <img src="western_image_1.png" alt="Scene 1" />
+    <img src="western_image_2.png" alt="Scene 2" />
+    <img src="western_image_3.png" alt="Scene 3" />
+  </div>
+</body>
+</html>
+"""
+
+# 저장
+html_path = "/mnt/data/Parallax_Scroll.html"
+with open(html_path, "w", encoding="utf-8") as f:
+    f.write(html_code)
+
+html_path
