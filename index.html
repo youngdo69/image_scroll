@@ -3,6 +3,7 @@ html_code = """
 <!DOCTYPE html>
 <html lang="en">
 <head>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta charset="UTF-8">
   <title>Seamless Scrolling Western Background</title>
   <style>
@@ -16,17 +17,18 @@ html_code = """
     }
 
     .parallax-wrapper {
-      position: relative;
-      width: 300vw; /* 3개의 16:9 이미지를 가로로 이어붙임 */
-      height: 100vh;
       display: flex;
-      animation: scroll 10s linear infinite;
+      flex-wrap: nowrap;           /* 줄바꿈 방지 */
+      white-space: nowrap;         /* 이미지가 세로로 쌓이지 않게 */
+      width: max-content;          /* 실제 이미지 너비만큼만 설정 */
+      animation: scroll 60s linear infinite;
     }
 
     .parallax-wrapper img {
       height: 100vh;
       width: auto;
       flex-shrink: 0;
+      display: block;
     }
 
     @keyframes scroll {
